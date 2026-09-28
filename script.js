@@ -105,17 +105,22 @@ function render() {
   }
 
   snake.forEach((segment) => {
-    blocks[`${segment.x} - ${segment.y}`].classList.remove("fill");
-  });
+  blocks[`${segment.x} - ${segment.y}`]
+    .classList.remove("fill", "snake-head");
+});
 
-  snake.unshift(head);
-  snake.pop();
+snake.unshift(head);
+snake.pop();
 
-  snake.forEach((segment) => {
-    blocks[`${segment.x} - ${segment.y}`].classList.add("fill");
-  });
-}
+snake.forEach((segment, index) => {
+  const block = blocks[`${segment.x} - ${segment.y}`];
 
+  block.classList.add("fill");
+
+  if (index === 0) {
+    block.classList.add("snake-head");
+  }
+});
 //start game
 startBtn.addEventListener("click", () => {
   modal.style.display = "none";

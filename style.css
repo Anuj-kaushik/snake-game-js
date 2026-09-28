@@ -94,6 +94,10 @@ section {
   background-color: var(--bg-fill-color);
 }
 
+.snake-head {
+  background-color: #4caf50;
+}
+
 .food {
   background-color: var(--bg-food-color);
 }
